@@ -380,7 +380,7 @@ namespace Option.Test
             }
 
             [Fact]
-            public void Equals_NoneValToNullReference_AreUnequal()
+            public void Equals_NoneValToNullOptionReference_AreUnequal()
             {
                 Option<string> nullNone = null;
 
@@ -394,6 +394,14 @@ namespace Option.Test
                 var otherNone = None.Value;
 
                 none.Should().BeEquivalentTo(otherNone);
+            }
+
+            [Fact]
+            public void Equals_NoneValToNullNoneReference_AreUnequal()
+            {
+                None nullNone = null;
+
+                None.Value.Should().NotBeEquivalentTo(nullNone);
             }
         }
 

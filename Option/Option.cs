@@ -89,7 +89,7 @@ namespace Option
 
         private None() { }
 
-        public override bool Equals(object obj) => obj is None || IsGenericNone(obj.GetType());
+        public override bool Equals(object obj) => obj is None || IsGenericNone(obj?.GetType());
 
         private static bool IsGenericNone(Type type) =>
             type.GenericTypeArguments.Length == 1 &&
