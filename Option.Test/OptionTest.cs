@@ -2,9 +2,11 @@ using System;
 using FluentAssertions;
 using Option.Test.Helpers;
 using Xunit;
+// ReSharper disable ExpressionIsAlwaysNull
 
 namespace Option.Test
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class OptionTest
     {
         private const string Expected = "foo";
@@ -194,11 +196,11 @@ namespace Option.Test
             [Fact]
             public void ResultOrFunction_OnSome_ReturnsResult()
             {
-                const string SomeWasNone =
+                const string someWasNone =
                     "The test failed because expected Some was actually None";
                 Option<string> some = Expected;
 
-                var result = some.ResultOr(() => throw new Exception(SomeWasNone));
+                var result = some.ResultOr(() => throw new Exception(someWasNone));
 
                 result.Should().Be(Expected);
             }

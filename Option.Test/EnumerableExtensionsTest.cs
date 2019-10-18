@@ -5,6 +5,7 @@ using FluentAssertions;
 using Option.Extensions;
 using Option.Test.Helpers;
 using Xunit;
+// ReSharper disable ExpressionIsAlwaysNull
 
 namespace Option.Test
 {

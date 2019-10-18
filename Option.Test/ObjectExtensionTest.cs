@@ -2,6 +2,7 @@ using System;
 using FluentAssertions;
 using Option.Extensions;
 using Xunit;
+// ReSharper disable ExpressionIsAlwaysNull
 
 namespace Option.Test
 {
