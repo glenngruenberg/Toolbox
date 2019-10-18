@@ -6,6 +6,8 @@ namespace Option.Test.Helpers
 
         public Option<TestProperty> Option { get; set; } = new TestProperty();
 
-        public class TestProperty { }
+        
     }
+
+    public class TestProperty { }
 }

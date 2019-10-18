@@ -65,30 +65,30 @@ namespace Option.Test
 
                 var result = some.Apply(obj => obj.Property);
 
-                result.Should().BeOfType<Some<TestObject.TestProperty>>();
+                result.Should().BeOfType<Some<TestProperty>>();
             }
 
             [Fact]
             public void Apply_OnSome_ResultContainsValue()
             {
-                var property = new TestObject.TestProperty();
+                var property = new TestProperty();
                 var testObject = new TestObject { Property = property };
                 Option<TestObject> some = testObject;
 
                 var result = some.Apply(obj => obj.Property);
 
-                ((Some<TestObject.TestProperty>)result).Content.Should().Be(property);
+                ((Some<TestProperty>)result).Content.Should().Be(property);
             }
 
             [Fact]
             public void Apply_OnSome_WhenUsingImplicitCast_ContainsValue()
             {
-                var property = new TestObject.TestProperty();
+                var property = new TestProperty();
                 var testObject = new TestObject { Property = property };
                 Option<TestObject> some = testObject;
 
-                TestObject.TestProperty result =
-                    some.Apply(obj => obj.Property) as Some<TestObject.TestProperty>;
+                TestProperty result =
+                    some.Apply(obj => obj.Property) as Some<TestProperty>;
 
                 result.Should().Be(property);
             }
@@ -130,30 +130,30 @@ namespace Option.Test
 
                 var result = some.Apply(obj => obj.Option);
 
-                result.Should().BeOfType<Some<TestObject.TestProperty>>();
+                result.Should().BeOfType<Some<TestProperty>>();
             }
 
             [Fact]
             public void ApplyOption_OnSome_ResultContainsValue()
             {
-                var property = new TestObject.TestProperty();
+                var property = new TestProperty();
                 var testObject = new TestObject { Option = property };
                 Option<TestObject> some = testObject;
 
                 var result = some.Apply(obj => obj.Option);
 
-                ((Some<TestObject.TestProperty>)result).Content.Should().Be(property);
+                ((Some<TestProperty>)result).Content.Should().Be(property);
             }
 
             [Fact]
             public void ApplyOption_OnSome_WhenUsingImplicitCast_ContainsValue()
             {
-                var property = new TestObject.TestProperty();
+                var property = new TestProperty();
                 var testObject = new TestObject { Option = property };
                 Option<TestObject> some = testObject;
 
-                TestObject.TestProperty result =
-                    some.Apply(obj => obj.Option) as Some<TestObject.TestProperty>;
+                TestProperty result =
+                    some.Apply(obj => obj.Option) as Some<TestProperty>;
 
                 result.Should().Be(property);
             }

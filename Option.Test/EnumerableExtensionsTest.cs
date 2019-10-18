@@ -58,7 +58,7 @@ namespace Option.Test
             var thatOne = new TestObject();
             var list = new List<TestObject> { notThisOne, thatOne };
 
-            var result = list.FirstOrNone(x => x.Option is Some<TestObject.TestProperty>);
+            var result = list.FirstOrNone(x => x.Option is Some<TestProperty>);
 
             result.Should().BeOfType<Some<TestObject>>();
         }
@@ -66,12 +66,12 @@ namespace Option.Test
         [Fact]
         public void FirstOrNonePredicateWithFirst_ContainsCorrectValue()
         {
-            TestObject.TestProperty nullProperty = null;
+            TestProperty nullProperty = null;
             var notThisOne = new TestObject { Option = nullProperty };
             var thatOne = new TestObject();
             var list = new List<TestObject> { notThisOne, thatOne };
 
-            var result = list.FirstOrNone(x => x.Option is Some<TestObject.TestProperty>)
+            var result = list.FirstOrNone(x => x.Option is Some<TestProperty>)
                 .ResultOr(() => throw new Exception("Test failed because FirstOrNone returned None"));
 
             result.Should().Be(thatOne);
@@ -80,11 +80,11 @@ namespace Option.Test
         [Fact]
         public void FirstOrNonePredicateOnEmpty_ReturnsNone()
         {
-            TestObject.TestProperty nullProperty = null;
+            TestProperty nullProperty = null;
             var notThisOne = new TestObject { Option = nullProperty };
             var list = new List<TestObject> { notThisOne };
 
-            var result = list.FirstOrNone(x => x.Option is Some<TestObject.TestProperty>);
+            var result = list.FirstOrNone(x => x.Option is Some<TestProperty>);
 
             result.Should().BeOfType<None<TestObject>>();
         }
@@ -95,7 +95,7 @@ namespace Option.Test
             var testObject = new TestObject();
             var list = new List<TestObject> { null, testObject };
 
-            var result = list.FirstOrNone(x => x.Option is Some<TestObject.TestProperty>)
+            var result = list.FirstOrNone(x => x.Option is Some<TestProperty>)
                 .ResultOr(() => throw new Exception("Test failed because FirstOrNone returned None"));
 
             result.Should().Be(testObject);
@@ -108,13 +108,13 @@ namespace Option.Test
 
             var result = list.SelectSome(x => x.Option).First();
 
-            result.Should().BeOfType<TestObject.TestProperty>();
+            result.Should().BeOfType<TestProperty>();
         }
 
         [Fact]
         public void SelectSome_ReturnsCorrectValue()
         {
-            var testProperty = new TestObject.TestProperty();
+            var testProperty = new TestProperty();
             var list = new List<TestObject> { new TestObject { Option = testProperty } };
 
             var result = list.SelectSome(x => x.Option).First();
@@ -125,7 +125,7 @@ namespace Option.Test
         [Fact]
         public void SelectSome_FiltersOutNones()
         {
-            TestObject.TestProperty nullProperty = null;
+            TestProperty nullProperty = null;
             var notThisOne = new TestObject { Option = nullProperty };
             var list = new List<TestObject> { notThisOne, new TestObject() };
 
