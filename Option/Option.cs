@@ -9,6 +9,7 @@ namespace Option
             ? (Option<T>)None.Value
             : new Some<T>(value);
 
+        // ReSharper disable once UnusedParameter.Global
         public static implicit operator Option<T>(None _) => new None<T>();
 
         public abstract Option<TResult> Apply<TResult>(Func<T, TResult> function);
